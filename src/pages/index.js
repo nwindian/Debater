@@ -2,7 +2,32 @@ import styles from '@/styles/Home.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation';
 
-const Home = () => {
+// ADDITIONAL LOGIC FOR GETSERVERSIDE PROPS, MAY NOT NEED (along with util and body-parser packages)
+
+// import bodyParser from 'body-parser';
+// import util from "util"
+
+// const getBody = util.promisify(bodyParser.urlencoded());
+
+// export async function getServerSideProps({ req, res }) {
+//   console.log(req.method, req.body)
+//   if (req.method === "POST") {
+//     await getBody(req, res);
+//     return {
+//       props: {
+//         name: req.body?.id || "id",
+//         message: req.body ? "received!" : "",
+//       }
+//     };
+//   }
+//   return {
+//     props: {
+//       message: "unsuccessful"
+//     }
+//   }
+// }
+
+const Home = (props) => {
   const router = useRouter()
   const [vote, setVote] = useState(null)
 
@@ -12,15 +37,23 @@ const Home = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    // TODO: send vote to backend, pass with getServerSideProps
-    router.push('/debate')
+    fetch("/api/post-vote", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({ vote, user: "becky" })
+    })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
+    .catch(error=>console.log(error))
   }
 
   return (
     <div className={styles.main}>
       <h1>This is the debate synopsis.</h1>
       <h3>Choose an option to vote and join the conversation, or abstain.</h3>
-      <form onSubmit={handleSubmit}>
+      <form method="post" onSubmit={handleSubmit}>
         <label for="agree">Agree </label><input name="vote" id="agree" onChange={handleChange} type="radio" />
         <label for="disagree">Disagree </label><input name="vote" id="disagree" onChange={handleChange} type="radio" />
         <label for="abstain">Abstain </label> <input name="vote" id="abstain" onChange={handleChange} type="radio" />
