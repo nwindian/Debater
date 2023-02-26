@@ -5,4 +5,14 @@
   align-items: center;
   padding: 10rem;
   height: 80vh;
+  width: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 10vw;
+  gap: 10px;
+  background: lightgrey;
 }
