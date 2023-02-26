@@ -1,3 +1,4 @@
+import styles from '@/styles/Home.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation';
 
@@ -16,7 +17,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div className={styles.main}>
       <h1>This is the debate synopsis.</h1>
       <h3>Choose an option to vote and join the conversation, or abstain.</h3>
       <form onSubmit={handleSubmit}>
@@ -25,7 +26,7 @@ const Home = () => {
         <label for="abstain">Abstain </label> <input name="vote" id="abstain" onChange={handleChange} type="radio" />
         <button disabled={!vote} type="submit">Submit</button>
       </form>
-    </>
+    </div>
   )
 }
 export default Home
