@@ -37,7 +37,7 @@ const Debate = ({ vote }) => {
                             const time = moment().subtract(m.timeAgoPosted[0], 'days').subtract(m.timeAgoPosted[1], 'hours').calendar()
 
                             return (
-                                <Link href={`discussion/${m.id}`} className={styles.message} id={m.id}>
+                                <Link href={`discussion/${m.id}`} className={styles.message} key={m.id}>
                                     <p>posted by: {m.user}</p>
                                     <p>message body: {m.body}</p>
                                     <p>time posted: {time}</p>
