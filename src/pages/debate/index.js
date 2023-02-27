@@ -1,5 +1,7 @@
 import styles from '@/styles/Home.module.scss'
 import { useEffect, useState } from 'react'
+import moment from 'moment/moment'
+import Link from 'next/link'
 
 export async function getServerSideProps() {
     return {
@@ -8,7 +10,6 @@ export async function getServerSideProps() {
         }
     }
 }
-
 
 const Debate = ({ vote }) => {
     const [data, setData] = useState(null)
@@ -26,18 +27,28 @@ const Debate = ({ vote }) => {
     }, [])
 
     return (
-        <>
-            <p className={styles.main}>Vote: {vote}</p>
+        <div className={styles.main}>
+            <p>Vote: {vote}</p>
             <div className={styles.debate_container}>
                 {data && (
                     <>
                         <div>{data.title}</div>
-                        <ul>{data.messages.length && data.messages.map((m) => <li id={m.id}>{m.body}</li>)}</ul>
+                        {data.messages.length && data.messages.map((m) => {
+                            const time = moment().subtract(m.timeAgoPosted[0], 'days').subtract(m.timeAgoPosted[1], 'hours').calendar()
+
+                            return (
+                                <Link href={`discussion/${m.id}`} className={styles.message} id={m.id}>
+                                    <p>posted by: {m.user}</p>
+                                    <p>message body: {m.body}</p>
+                                    <p>time posted: {time}</p>
+                                </Link>
+                            )
+                        })}
                     </>
                 )}
             </div>
             {console.log(data)}
-        </>
+        </div>
     )
 }
 

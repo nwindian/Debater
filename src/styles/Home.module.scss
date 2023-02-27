@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 2rem 6rem;
   height: 80vh;
-  width: auto;
+  width: 85vw;
 }
 
 .debate_container {
@@ -15,11 +15,13 @@
   align-items: center;
   border: 2px solid black;
   padding: 3vw;
+  margin-top: 3vw;
 
   .message {
     padding: 1vw;
     margin: .5vw 0;
     border: 1px solid red;
+    width: 98%;
 
     &:hover {
       background: red;

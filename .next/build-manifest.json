@@ -29,6 +29,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/debate.js"
+    ],
+    "/discussion/[mId]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/discussion/[mId].js"
     ]
   },
   "ampFirstPages": []

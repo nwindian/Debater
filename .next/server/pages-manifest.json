@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/debate": "pages/debate.js",
-  "/api/get-debate": "pages/api/get-debate.js"
+  "/discussion/[mId]": "pages/discussion/[mId].js",
+  "/api/get-debate": "pages/api/get-debate.js",
+  "/debate": "pages/debate.js"
 }
