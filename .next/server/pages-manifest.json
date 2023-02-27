@@ -3,5 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/debate": "pages/debate.js",
-  "/debate/[vote]": "pages/debate/[vote].js"
+  "/api/get-debate": "pages/api/get-debate.js"
 }
