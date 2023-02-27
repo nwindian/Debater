@@ -1,4 +1,4 @@
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Home.module.scss'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation';
 
@@ -45,7 +45,9 @@ const Home = (props) => {
       body: JSON.stringify({ vote, user: "becky" })
     })
     .then(res=>res.json())
-    .then(data=>console.log(data))
+    .then(data=>{
+      if (data.status === 200) router.push(`/debate/${data.data.vote}`)
+    })
     .catch(error=>console.log(error))
   }
 
