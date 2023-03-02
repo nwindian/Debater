@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 30px;
   align-items: center;
   padding: 2rem 6rem;
   height: 80vh;
@@ -13,10 +13,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid black;
-  padding: 3vw;
-  margin-top: 3vw;
-
+  // border: 2px solid black;
   .message {
     padding: 1vw;
     margin: .5vw 0;
@@ -37,8 +34,45 @@
   width: 10vw;
   gap: 10px;
   background: lightgrey;
-
+  
+  .link {
+    width: 100%;
+    height: fit-content;
+    padding: 4% 4%;
+  }
   .link:hover {
     color: blue;
+    background: grey;
+  }
+}
+
+.vote_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30vw;
+}
+
+.vote_option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vote_button {
+  width: fit-content;
+  padding: 1% 2%;
+  align-self: center; 
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.go_to_link {
+  border: 2px solid lightgray;
+  padding: 2%;
+  &:hover{
+    cursor: pointer;
+    background: lightgray;
   }
 }

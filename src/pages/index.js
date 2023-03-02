@@ -44,23 +44,31 @@ const Home = (props) => {
       },
       body: JSON.stringify({ vote, user: "becky" })
     })
-    .then(res=>res.json())
-    .then(data=>{
-      if (data.status === 200) router.push(`/debate/${data.data.vote}`)
-    })
-    .catch(error=>console.log(error))
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 200) router.push(`/debate/${data.data.vote}`)
+      })
+      .catch(error => console.log(error))
   }
 
   return (
     <div className={styles.main}>
       <h1>This is the debate synopsis.</h1>
       <h3>Choose an option to vote and join the conversation, or abstain.</h3>
-      <form method="post" onSubmit={handleSubmit}>
-        <label for="agree">Agree </label><input name="vote" id="agree" onChange={handleChange} type="radio" />
-        <label for="disagree">Disagree </label><input name="vote" id="disagree" onChange={handleChange} type="radio" />
-        <label for="abstain">Abstain </label> <input name="vote" id="abstain" onChange={handleChange} type="radio" />
-        <button disabled={!vote} type="submit">Submit</button>
+      
+      <form className={styles.vote_form} method="post" onSubmit={handleSubmit}>
+        <div className={styles.vote_option}>
+          <label for="agree">Agree </label><input name="vote" id="agree" onChange={handleChange} type="radio" />
+        </div>
+        <div className={styles.vote_option}>
+          <label for="disagree">Disagree </label><input name="vote" id="disagree" onChange={handleChange} type="radio" />
+        </div>
+        <div className={styles.vote_option}>
+          <label for="abstain">Abstain </label> <input name="vote" id="abstain" onChange={handleChange} type="radio" />
+        </div>
+        <button className={styles.vote_button} disabled={!vote} type="submit">Submit</button>
       </form>
+    
     </div>
   )
 }
