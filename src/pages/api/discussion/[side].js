@@ -4,7 +4,7 @@ export default function handler(req, res) {
     const { side } = req.query
     res.status(200).json({
         status: 200,
-        message: "discussion loated",
+        message: "discussion loaded",
         discussion: {
             side: "pro",
             messages: [

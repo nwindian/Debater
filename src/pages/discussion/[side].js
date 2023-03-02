@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import styles from '@/styles/Home.module.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import DiscussionBody from '@/discussion-components/discussion-body'
 
 const DiscussionSide = () => {
     const router = useRouter()
@@ -8,10 +9,9 @@ const DiscussionSide = () => {
     const [discData, setDiscData] = useState(null)
 
     useEffect(() => {
-        fetch(`/api/get-discussion/${side}`)
+        fetch(`/api/discussion/${side}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setDiscData(data.discussion.messages)
             })
             .catch(error => console.log(error))
@@ -19,8 +19,8 @@ const DiscussionSide = () => {
 
     return (
     <div className={styles.main}>
-        <p>Discussion Side: {side}</p>
-
+        <h2>Discussion Side: {side}</h2>
+        {discData && <DiscussionBody messages={discData} />}
     </div>
     )
 }

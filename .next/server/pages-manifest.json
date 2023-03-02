@@ -2,6 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/debate/[vote]": "pages/debate/[vote].js",
-  "/api/get-debate": "pages/api/get-debate.js"
+  "/discussion/[side]": "pages/discussion/[side].js"
 }
