@@ -1,7 +1,7 @@
 import styles from '@/styles/Home.module.scss'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import DebateBody from '@/debate-components/debate-body'
+import DebateBody from '@/components/debate-components/debate-body'
 import Link from 'next/link'
 
 // INCLUDE getServerSideProps if you need SSR
@@ -30,11 +30,12 @@ const Debate = () => {
 
     return (
         <div className={styles.main}>
-            <p>Vote: {vote}</p>
+            <h2>Your Vote: {vote}</h2>
+            {data && <h3>Debate: {data.title}</h3>}
             <div className={styles.debate_container}>
                 {data && <DebateBody title={data.title} messages={data.messages} />}
             </div>
-            <Link className={styles.go_to_link} href={`/discussion/${vote}`}>Go to discussion</Link>
+            <Link className={styles.go_to_link} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro": "against"} discussion</Link>
         </div>
     )
 }

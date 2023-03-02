@@ -8,7 +8,8 @@ export default function handler(req, res) {
         comment: {
             id: commentId,
             body: "here is a comment",
-            userId: "user-1"
+            userId: "user-1",
+            sideIsPro: true
         }
     })
 }

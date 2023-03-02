@@ -25,10 +25,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/debate/[vote]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/debate/[vote].js"
+    ],
     "/discussion/[side]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/discussion/[side].js"
+    ],
+    "/discussion/msg/[mId]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/discussion/msg/[mId].js"
     ]
   },
   "ampFirstPages": []

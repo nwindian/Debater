@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import styles from '@/styles/Home.module.scss'
 import { useState, useEffect } from 'react'
-import DiscussionBody from '@/discussion-components/discussion-body'
+import DiscussionBody from '@/components/discussion-components/discussion-body'
 
 const DiscussionSide = () => {
     const router = useRouter()
