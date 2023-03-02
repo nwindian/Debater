@@ -21,11 +21,9 @@ const Debate = () => {
     useEffect(() => {
         fetch('/api/get-debate')
             .then(res => res.json())
-            .then(pData => {
-                console.log(pData)
-                if (pData.status === 200) {
-                    setData(pData.debate)
-                }
+            .then(data => {
+                console.log(data)
+                setData(data.debate)
             })
             .catch(error => console.log(error))
     }, [])
