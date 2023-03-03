@@ -19,7 +19,7 @@ const DiscussionSide = () => {
 
     return (
     <div className={styles.main}>
-        <h2>Discussion Side: {side}</h2>
+        <h1 className={styles.title}>Discussion Side: {side}</h1>
         {discData && <DiscussionBody messages={discData} />}
     </div>
     )

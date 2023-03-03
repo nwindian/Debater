@@ -19,7 +19,7 @@ const DebateMessage = () => {
 
   return (
     <div className={styles.generic_container}>
-      <h3>Message id: {mId}</h3>
+      <h1 className={styles.title}>Message id: {mId}</h1>
       {message && <DiscussionMessage user={message.userId} body={message.body} id={message.id} />}
     </div>
   )

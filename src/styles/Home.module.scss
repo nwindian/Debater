@@ -8,6 +8,15 @@
   width: 85vw;
 }
 
+.title {
+  border: 5px solid lightcyan;
+  font-weight: bolder;
+  width: 100%;
+  max-width: 85vw;
+  padding: 1vw;
+  text-align: center;
+}
+
 .debate_container {
   display: flex;
   flex-direction: column;
