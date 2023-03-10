@@ -1,17 +1,15 @@
-import styles from '@/styles/Home.module.scss'
+// import styles from '@/styles/Home.module.scss'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation';
+import { Modal, Button, Text, Radio, Checkbox, useTheme } from '@nextui-org/react';
 
 const Home = (props) => {
   const router = useRouter()
-  const [vote, setVote] = useState(null)
-
-  const handleChange = e => {
-    setVote(e.target.id)
-  }
+  // const { theme } = useTheme()
+  const [vote, setVote] = useState("")
+  const [visible, setVisible] = useState(true)
 
   const handleSubmit = e => {
-    e.preventDefault()
     fetch("/api/post-vote", {
       method: "POST",
       headers: {
@@ -21,30 +19,50 @@ const Home = (props) => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.status === 200) router.push(`/debate/${data.data.vote}`)
+        if (data.status === 200) {
+          setVisible(false)
+          router.push(`/debate/${data.data.vote}`)
+        }
       })
       .catch(error => console.log(error))
   }
 
+
   return (
-    <div className={styles.main}>
-      <h1 className={styles.title}>This is the debate synopsis.</h1>
-      <h3>Choose an option to vote and join the conversation, or abstain.</h3>
-
-      <form className={styles.vote_form} method="post" onSubmit={handleSubmit}>
-        <div className={styles.vote_option}>
-          <label htmlFor="agree">Agree </label><input name="vote" id="agree" onChange={handleChange} type="radio" />
-        </div>
-        <div className={styles.vote_option}>
-          <label htmlFor="disagree">Disagree </label><input name="vote" id="disagree" onChange={handleChange} type="radio" />
-        </div>
-        <div className={styles.vote_option}>
-          <label htmlFor="abstain">Abstain </label> <input name="vote" id="abstain" onChange={handleChange} type="radio" />
-        </div>
-        <button className={styles.vote_button} disabled={!vote} type="submit">Submit</button>
+      <form method="post" onSubmit={handleSubmit}>
+        <Modal
+          preventClose
+          blur
+          open={visible}
+          aria-labelledby="modal-title"
+        >
+          <Modal.Header>
+            <Text h1="true" id="modal-title" size={20}>
+              Welcome to Debater
+              <Text size={17}>
+                This is the debate synopsis
+              </Text>
+            </Text>
+          </Modal.Header>
+          <Modal.Body>
+            <Radio.Group defaultValue="Agree" value={vote} onChange={setVote} aria-label="vote options">
+              <Radio size="md" value="agree" color='success' labelColor='success' description='you agree with this'>Agree</Radio>
+              <Radio size="md" value="disagree" color='warning' labelColor='warning' description='you disagree with this'>Disagree</Radio>
+              <Radio size="md" value="abstain" color='error' labelColor='error' description='abstain and view discussion'>Abtain</Radio>
+            </Radio.Group>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              auto
+              ghost
+              color="error"
+              disabled={!vote}
+              type="submit"
+              onPress={handleSubmit}
+            >Submit</Button>
+          </Modal.Footer>
+        </Modal>
       </form>
-
-    </div>
   )
 }
 export default Home
