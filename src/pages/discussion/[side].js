@@ -15,7 +15,7 @@ const DiscussionSide = () => {
                 setDiscData(data.discussion.messages)
             })
             .catch(error => console.log(error))
-    }, [])
+    }, [side])
 
     return (
     <div className={styles.main}>

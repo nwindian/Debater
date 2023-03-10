@@ -15,7 +15,7 @@ const DebateMessage = () => {
         console.log(d)
         setMessage(d.comment)
       })
-  }, [])
+  }, [mId])
 
   return (
     <div className={styles.generic_container}>
