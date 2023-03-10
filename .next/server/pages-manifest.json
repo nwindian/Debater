@@ -3,9 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/debate/[vote]": "pages/debate/[vote].js",
-  "/discussion/msg/[mId]": "pages/discussion/msg/[mId].js",
-  "/api/discussion/comment/[commentId]": "pages/api/discussion/comment/[commentId].js",
-  "/api/get-debate": "pages/api/get-debate.js",
+  "/discussion/[side]": "pages/discussion/[side].js",
   "/api/discussion/[side]": "pages/api/discussion/[side].js",
-  "/discussion/[side]": "pages/discussion/[side].js"
+  "/api/get-debate": "pages/api/get-debate.js"
 }
