@@ -15,7 +15,7 @@ const Document = () => {
     <Html lang="en">
       <Head>{CssBaseline.flush()}</Head>
       <body style={{ 'display': 'flex' }}>
-        {/* <Header /> */}
+        <Header />
         <Main />
         <NextScript />
       </body>
