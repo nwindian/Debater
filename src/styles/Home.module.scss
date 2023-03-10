@@ -1,0 +1,115 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding: 2rem 6rem;
+  height: 80vh;
+  width: 85vw;
+}
+
+.title {
+  border: 5px solid lightcyan;
+  font-weight: bolder;
+  width: 100%;
+  max-width: 85vw;
+  padding: 1vw;
+  text-align: center;
+}
+
+.debate_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%;
+  .message {
+    padding: 1vw;
+    margin: .5vw 0;
+    width: 98%;
+    border-radius: 20px;
+    padding: 1% 2%;
+    margin: .5% 0;
+
+    &:hover {
+      opacity: 0.7;
+      color: white;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 10vw;
+  gap: 10px;
+  background: lightgrey;
+  
+  .link {
+    width: 100%;
+    height: fit-content;
+    padding: 4% 4%;
+  }
+  .link:hover {
+    color: blue;
+    background: grey;
+  }
+}
+
+.vote_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30vw;
+}
+
+.vote_option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vote_button {
+  width: fit-content;
+  padding: 1% 2%;
+  align-self: center; 
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.go_to_link {
+  border: 2px solid lightgray;
+  padding: 2%;
+  &:hover{
+    cursor: pointer;
+    background: lightgray;
+  }
+}
+
+.disc_body_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.comment_container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: flex-start;
+  background: lightblue;
+  padding: 1% 2%;
+  margin: .5% 0;
+  border-radius: 20px;
+}
+
+.generic_container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: 90vw;
+  gap: 10px;
+}
