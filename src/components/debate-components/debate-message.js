@@ -5,8 +5,8 @@ const DebateMessage = ({ id, user, body, time, side }) => {
     const router = useRouter()
 
     const styles = side === "pro" ?
-        { headerBg: "#4E041E", bodyBg: "#910838", userTxt: "#B80A47", timeTxt: "#910838", bodyTxt: "#FDD8E5", justify: "flex-start", bodyTxtAlign: "left", cardMargin: ".3% 5% .3% 0" } :
-        { headerBg: "#FDD8E5", bodyBg: "#FEF0F5", userTxt: "#F31260", timeTxt: "#F881AB", bodyTxt: "#4E041E", justify: "flex-end", bodyTxtAlign: "right", cardMargin: ".3% 0 .3% 5%"}
+        { headerBg: "#4E041E", bodyBg: "#910838", userTxt: "#B80A47", timeTxt: "#910838", bodyTxt: "#FDD8E5", justify: "flex-start", bodyTxtAlign: "left", cardMargin: ".2% 5% .2% 0" } :
+        { headerBg: "#FDD8E5", bodyBg: "#FEF0F5", userTxt: "#F31260", timeTxt: "#F881AB", bodyTxt: "#4E041E", justify: "flex-end", bodyTxtAlign: "right", cardMargin: ".2% 0 .2% 5%"}
 
     return (
         <Card

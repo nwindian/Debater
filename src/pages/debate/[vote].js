@@ -1,8 +1,7 @@
-import { Col, Container, Row, Text, Card } from "@nextui-org/react";
+import { Col, Container, Text, Link } from "@nextui-org/react";
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
-import Link from 'next/link'
 
 const Debate = () => {
     const router = useRouter()
@@ -21,16 +20,16 @@ const Debate = () => {
 
     return (
         <Container fluid>
-            <Col>
-                <Card variant="bordered">
-                    {data && <Text>{data.title}</Text>}
-                </Card>
-                <Card variant="bordered">
-                    <Text>Your Vote: {vote}</Text>
-                </Card>
+            <Col
+                css={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+                {data && <Text h2>{data.title}</Text>}
+                <Text h6>Your Vote: {vote}</Text>
             </Col>
             {data && <DebateBody title={data.title} messages={data.messages} />}
-            <Link style={{ border: '2px solid red' }} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
+            <Col
+                css={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+                <Link block css={{ alignText: "center", marginTop: "1%" }} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
+            </Col>
         </Container>
     )
 }
