@@ -1,4 +1,4 @@
-import { Col, Container, Text, Link } from "@nextui-org/react";
+import { Navbar, Col, Container, Text, Link } from "@nextui-org/react";
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
@@ -20,15 +20,17 @@ const Debate = () => {
 
     return (
         <Container fluid>
-            <Col
-                css={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+            <Navbar
+                shouldHideOnScroll
+                css={{ margin: "1% 0" }}
+            >
                 {data && <Text h2>{data.title}</Text>}
                 <Text h6>Your Vote: {vote}</Text>
-            </Col>
+            </Navbar>
             {data && <DebateBody title={data.title} messages={data.messages} />}
             <Col
                 css={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-                <Link block css={{ alignText: "center", marginTop: "1%" }} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
+                <Link block css={{ alignText: "center", margin: "1% 0" }} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
             </Col>
         </Container>
     )
