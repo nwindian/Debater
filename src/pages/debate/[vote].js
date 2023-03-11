@@ -1,4 +1,4 @@
-import styles from '@/styles/Home.module.scss'
+import { Container, Row, Text } from "@nextui-org/react";
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
@@ -20,18 +20,14 @@ const Debate = () => {
     }, [])
 
     return (
-        <div className={styles.main}>
-            
-            <div className={styles.title}>
-                {data && <h1>Debate: {data.title}</h1>}
-                <h3>Your Vote: {vote}</h3>
-            </div>
-
-            <div className={styles.debate_container}>
-                {data && <DebateBody title={data.title} messages={data.messages} />}
-            </div>
-            <Link className={styles.go_to_link} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
-        </div>
+        <Container fluid>
+            <Row justify="center" align="center">
+                {data && <Text>{data.title}</Text>}
+            </Row>
+            <p>Your Vote: {vote}</p>
+            {data && <DebateBody title={data.title} messages={data.messages} />}
+            <Link style={{border: '2px solid red'}} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
+        </Container>
     )
 }
 
