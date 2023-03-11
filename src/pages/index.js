@@ -42,9 +42,9 @@ const Home = (props) => {
         </Modal.Header>
         <Modal.Body>
           <Radio.Group defaultValue="Agree" value={vote} onChange={setVote} aria-label="vote options">
-            <Radio value="agree" color='success' labelColor='success' description='you agree with this'>Agree</Radio>
-            <Radio value="disagree" color='warning' labelColor='warning' description='you disagree with this'>Disagree</Radio>
-            <Radio value="abstain" color='error' labelColor='error' description='abstain and view discussion'>Abtain</Radio>
+            <Radio disableAnimation value="agree" color='success' labelColor='success' description='you agree with this'>Agree</Radio>
+            <Radio disableAnimation value="disagree" color='error' labelColor='error' description='you disagree with this'>Disagree</Radio>
+            <Radio disableAnimation value="abstain" color='warning' labelColor='warning' description='abstain and view discussion'>Abtain</Radio>
           </Radio.Group>
         </Modal.Body>
         <Modal.Footer>
