@@ -1,8 +1,7 @@
-import styles from '@/styles/Home.module.scss'
+import { Navbar, Col, Container, Text, Link } from "@nextui-org/react";
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
-import Link from 'next/link'
 
 const Debate = () => {
     const router = useRouter()
@@ -20,18 +19,20 @@ const Debate = () => {
     }, [])
 
     return (
-        <div className={styles.main}>
-            
-            <div className={styles.title}>
-                {data && <h1>Debate: {data.title}</h1>}
-                <h3>Your Vote: {vote}</h3>
-            </div>
-
-            <div className={styles.debate_container}>
-                {data && <DebateBody title={data.title} messages={data.messages} />}
-            </div>
-            <Link className={styles.go_to_link} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
-        </div>
+        <Container fluid>
+            <Navbar
+                shouldHideOnScroll
+                css={{ margin: "1% 0" }}
+            >
+                {data && <Text h2>{data.title}</Text>}
+                <Text h6>Your Vote: {vote}</Text>
+            </Navbar>
+            {data && <DebateBody title={data.title} messages={data.messages} />}
+            <Col
+                css={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+                <Link block css={{ alignText: "center", margin: "1% 0" }} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
+            </Col>
+        </Container>
     )
 }
 

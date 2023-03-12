@@ -1,14 +1,29 @@
-import Link from 'next/link'
-import styles from '@/styles/Home.module.scss'
+import { useRouter } from 'next/router';
+import { Text, Card } from "@nextui-org/react";
 
-const DebateMessage = ({id, user, body, time, side}) => {
+const DebateMessage = ({ id, user, body, time, side }) => {
+    const router = useRouter()
+
+    const styles = side === "pro" ?
+        { headerBg: "#4E041E", bodyBg: "#910838", userTxt: "#B80A47", timeTxt: "#910838", bodyTxt: "#FDD8E5", justify: "flex-start", bodyTxtAlign: "left", cardMargin: ".2% 5% .2% 0" } :
+        { headerBg: "#FDD8E5", bodyBg: "#FEF0F5", userTxt: "#F31260", timeTxt: "#F881AB", bodyTxt: "#4E041E", justify: "flex-end", bodyTxtAlign: "right", cardMargin: ".2% 0 .2% 5%"}
+
     return (
-        <Link href={`/discussion/msg/${id}`} className={styles.message} style={{background: side === "pro" ? "orange" : "lightblue"}}>
-            <p>posted by: {user}</p>
-            <p>message body: {body}</p>
-            <p>time posted: {time}</p>
-            <p>side: {side}</p>
-        </Link>
+        <Card
+            variant="bordered"
+            borderWeight='normal'
+            css={{ margin: styles.cardMargin }}
+            isHoverable
+            isPressable
+            onPress={() => router.push(`/discussion/msg/${id}`)}>
+            <Card.Header css={{ backgroundColor: styles.headerBg, justifyContent: styles.justify }}>
+                <Text css={{ color: styles.userTxt }}>{user}</Text>
+                <Text css={{ color: styles.timeTxt, marginLeft: "2%" }}>{time}</Text>
+            </Card.Header>
+            <Card.Body css={{ backgroundColor: styles.bodyBg }}>
+                <Text css={{ color: styles.bodyTxt, textAlign: styles.bodyTxtAlign }}>{body}</Text>
+            </Card.Body>
+        </Card>
     )
 }
 
