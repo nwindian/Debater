@@ -15,7 +15,7 @@ const Header = ({yourVote}) => {
                 <Dropdown.Item key="login">
                     <Link href="/login">Login</Link>
                 </Dropdown.Item>
-                <Dropdown.Item key="debate">
+                <Dropdown.Item key="profile">
                     <Link href="/profile/becky">My Profile</Link>
                 </Dropdown.Item>
             </Dropdown.Menu>
