@@ -1,7 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import Header from '../components/header'
-import { CssBaseline } from '@nextui-org/react';
-
+import { CssBaseline } from '@nextui-org/react'
 
 const Document = () => {
   const getInitialProps = async (ctx) => {

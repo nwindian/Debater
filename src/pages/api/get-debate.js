@@ -7,7 +7,7 @@ export default function handler(req, res) {
                   user: "user" + i,
                   body: messageBody(),
                   sideIsPro: i % 2 === 0 ? true : false,
-                  timeAgoPosted: [[4, 1.5]]
+                  timeAgoPosted: [4, 1.5]
             }
       })
 

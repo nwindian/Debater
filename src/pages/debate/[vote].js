@@ -2,7 +2,7 @@ import { Navbar, Col, Container, Text, Link } from "@nextui-org/react";
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
-import Header from "../../components/header";
+import DropdownMenu from "../../components/dropdown-menu";
 
 const Debate = () => {
     const router = useRouter()
@@ -23,7 +23,7 @@ const Debate = () => {
         <>
             <Navbar shouldHideOnScroll css={{ margin: "1% 0" }}>
                 <Text h2>{data ? data.title : "Debater"}</Text>
-                <Header yourVote={vote} />
+                <DropdownMenu yourVote={vote} />
             </Navbar>
             <Container md>
                 {data && <DebateBody title={data.title} messages={data.messages} />}

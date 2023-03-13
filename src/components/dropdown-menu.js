@@ -1,7 +1,7 @@
 import { Dropdown, Link } from '@nextui-org/react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
-const Header = ({ yourVote }) => {
+const DropdownMenu = ({ yourVote }) => {
     return (
         <Dropdown>
             <Dropdown.Button flat icon={<AiOutlineMenu />} />
@@ -17,7 +17,7 @@ const Header = ({ yourVote }) => {
 
                 <Dropdown.Section key="other-links">
                     <Dropdown.Item key="debate">
-                        <Link href="/debate/agree">Debate</Link>
+                        <Link href={`/debate/${yourVote}`}>Debate</Link>
                     </Dropdown.Item>
                     <Dropdown.Item key="login">
                         <Link href="/login">Login</Link>
@@ -32,4 +32,4 @@ const Header = ({ yourVote }) => {
     )
 }
 
-export default Header
+export default DropdownMenu
