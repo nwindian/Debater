@@ -15,9 +15,8 @@ const Document = () => {
   return (
     <Html lang="en">
       <Head>{CssBaseline.flush()}</Head>
-        <Header />
-        <Main />
-        <NextScript />
+      <Main />
+      <NextScript />
     </Html>
   )
 }
