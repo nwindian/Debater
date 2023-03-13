@@ -1,6 +1,5 @@
 import { Dropdown, Link } from '@nextui-org/react'
 import { AiOutlineMenu } from 'react-icons/ai'
-import GoToDiscussion from './debate-components/go-to-discussion-link'
 
 const Header = ({ yourVote }) => {
     return (

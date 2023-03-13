@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
 import Header from "../../components/header";
-// import GoToDiscussion from "../../components/debate-components/go-to-discussion-link";
 
 const Debate = () => {
     const router = useRouter()
