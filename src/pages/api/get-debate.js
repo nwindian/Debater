@@ -6,7 +6,7 @@ export default function handler(req, res) {
                   id: i,
                   user: "user" + i,
                   body: messageBody(),
-                  sideIsPro: Math.random() >= 0.5,
+                  sideIsPro: i % 2 === 0 ? true : false,
                   timeAgoPosted: [[4, 1.5]]
             }
       })
