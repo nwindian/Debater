@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
 import Header from "../../components/header";
+// import GoToDiscussion from "../../components/debate-components/go-to-discussion-link";
 
 const Debate = () => {
     const router = useRouter()
@@ -22,10 +23,8 @@ const Debate = () => {
     return (
         <>
             <Navbar shouldHideOnScroll css={{ margin: "1% 0" }}>
-                    <Text h2>{data ? data.title : "Debater"}</Text>
-                    {/* Maybe render this on a per-page basis instead of wrapping a <Layout> around _app? */}
-                    <Header yourVote={vote}/>
-                    {/*  */}
+                <Text h2>{data ? data.title : "Debater"}</Text>
+                <Header yourVote={vote} />
             </Navbar>
             <Container md>
                 {data && <DebateBody title={data.title} messages={data.messages} />}
