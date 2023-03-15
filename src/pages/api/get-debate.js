@@ -1,6 +1,6 @@
 const { generateRandomDiscussion } = require('../../helpers')
 
-export default function handler(req, res) {
+const handler = (req, res) => {
       const messages = generateRandomDiscussion(10)
 
       res.status(200).json({
@@ -9,3 +9,5 @@ export default function handler(req, res) {
             debate: { title: "A Debate Title", messages }
       })
 }
+
+export default handler

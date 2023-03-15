@@ -1,6 +1,6 @@
 const { generateRandomDiscussion } = require('../../../helpers')
 
-export default function handler(req, res) {
+const handler = (req, res) => {
     const { side } = req.query
     const messages = generateRandomDiscussion(15)
 
@@ -16,3 +16,5 @@ export default function handler(req, res) {
             discussion: { side: "against", messages }
         })
 }
+
+export default handler

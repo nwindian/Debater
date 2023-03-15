@@ -1,3 +1,5 @@
+import moment from 'moment/moment'
+
 // function that generates an array of messages, of length arrayLength 
 const generateRandomDiscussion = (arrayLength) => {
     const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
@@ -15,4 +17,7 @@ const generateRandomDiscussion = (arrayLength) => {
     return messages;
 }
 
-module.exports = { generateRandomDiscussion }
+// function that gets and formats time of message posted
+const getTime = (days, hours) => moment().subtract(days, 'days').subtract(hours, 'hours').calendar()
+
+module.exports = { generateRandomDiscussion, getTime }

@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import { NextUIProvider } from '@nextui-org/react'
 import Layout from '../components/layout'
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return (
     <NextUIProvider >
       <Layout>
@@ -11,3 +11,5 @@ export default function App({ Component, pageProps }) {
     </NextUIProvider>
   )
 }
+
+export default App

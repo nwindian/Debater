@@ -34,4 +34,5 @@ const DiscussionMessage = ({ user, body, id, side, time, focused }) => {
         </Card>
     )
 }
+
 export default DiscussionMessage

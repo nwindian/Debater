@@ -15,7 +15,7 @@ const DebateMessage = () => {
         setMessages(d.messages)
         setFocusedMsg(d.focusedMsg)
       })
-  }, [mId])
+  }, [mId, side])
 
   return (
     <>

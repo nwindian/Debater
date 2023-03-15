@@ -1,7 +1,7 @@
 // GET specific message
 const { generateRandomDiscussion } = require('../../../../helpers')
 
-const handler = async(req, res) => {
+const handler = (req, res) => {
     const {side, mId} = req.query
     const messages = generateRandomDiscussion(15)
     const focusedMsg = messages.find(m => m.id === parseInt(mId))
