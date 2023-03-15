@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import DiscussionMessage from '@/components/discussion-components/discussion-message'
 import DiscussionSide from '../[side]'
 
 const DebateMessage = () => {
@@ -8,7 +7,6 @@ const DebateMessage = () => {
   const { mId, side } = router.query
   const [messages, setMessages] = useState(null)
   const [focusedMsg, setFocusedMsg] = useState(null)
-
 
   useEffect(() => {
     fetch(`/api/discussion/${side}/${mId}`)

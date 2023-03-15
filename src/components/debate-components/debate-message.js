@@ -4,7 +4,7 @@ import { Text, Card } from "@nextui-org/react";
 const DebateMessage = ({ id, user, body, time, side }) => {
     const router = useRouter()
 
-    const styles = side === "pro" ?
+    const styles = side === "agree" ?
         { headerBg: "#4E041E", bodyBg: "#910838", userTxt: "#B80A47", timeTxt: "#910838", bodyTxt: "#FDD8E5", justify: "flex-start", bodyTxtAlign: "left", cardMargin: ".2% 5% .2% 0" } :
         { headerBg: "#FDD8E5", bodyBg: "#FEF0F5", userTxt: "#F31260", timeTxt: "#F881AB", bodyTxt: "#4E041E", justify: "flex-end", bodyTxtAlign: "right", cardMargin: ".2% 0 .2% 5%"}
 
