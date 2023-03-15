@@ -15,7 +15,7 @@ const DebateMessage = ({ id, user, body, time, side }) => {
             css={{ margin: styles.cardMargin }}
             isHoverable
             isPressable
-            onPress={() => router.push(`/discussion/msg/${id}`)}>
+            onPress={() => router.push(`/discussion/${side}/${id}`)}>
             <Card.Header css={{ backgroundColor: styles.headerBg, justifyContent: styles.justify }}>
                 <Text css={{ color: styles.userTxt }}>{user}</Text>
                 <Text css={{ color: styles.timeTxt, marginLeft: "2%" }}>{time}</Text>
