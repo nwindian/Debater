@@ -34,7 +34,7 @@ const DiscussionMessage = ({ user, body, id, side, time, focused }) => {
             <Card.Body css={{ backgroundColor: styles.bodyBg, paddingBottom: 0, paddingTop: "1%" }}>
                 <Text css={{ color: styles.bodyTxt, textAlign: styles.bodyTxtAlign }}>{body}</Text>
             </Card.Body>
-            <Card.Footer css={{ backgroundColor: styles.bodyBg, padding: 0 }}>
+            <Card.Footer css={{ borderBottomLeftRadius: 0, borderBottomRightRadius: 0, backgroundColor: styles.bodyBg, padding: 0 }}>
                 <Row justify="space-evenly">
                     <Button onPress={() => setIsLiked(!isLiked)} css={{ background: "inherit", color: styles.bodyTxt }} icon={isLiked ? <AiFillLike /> : <AiOutlineLike />} />
                     <Button onPress={() => setReply(!reply)} css={{ background: "inherit", color: styles.bodyTxt }} icon={reply ? < BsReplyFill /> : <BsReply />} />
