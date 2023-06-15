@@ -32,3 +32,4 @@ yarn-error.log*
 
 # lockfiles
 .yarn/*
+yarn.lock
