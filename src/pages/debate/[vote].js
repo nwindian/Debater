@@ -2,6 +2,7 @@ import { Navbar, Col, Container, Text, Link } from "@nextui-org/react";
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DebateBody from '@/components/debate-components/debate-body'
+import DropdownMenu from "../../components/dropdown-menu";
 
 const Debate = () => {
     const router = useRouter()
@@ -19,20 +20,18 @@ const Debate = () => {
     }, [])
 
     return (
-        <Container fluid>
-            <Navbar
-                shouldHideOnScroll
-                css={{ margin: "1% 0" }}
-            >
-                {data && <Text h2>{data.title}</Text>}
-                <Text h6>Your Vote: {vote}</Text>
+        <>
+            <Navbar shouldHideOnScroll css={{ margin: "1% 0" }}>
+                <Text h2>{data ? data.title : "Debater"}</Text>
+                <DropdownMenu yourVote={vote} />
             </Navbar>
-            {data && <DebateBody title={data.title} messages={data.messages} />}
-            <Col
-                css={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-                <Link block css={{ alignText: "center", margin: "1% 0" }} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
-            </Col>
-        </Container>
+            <Container md>
+                {data && <DebateBody title={data.title} messages={data.messages} />}
+                <Col css={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+                    <Link block css={{ alignText: "center", margin: "1% 0" }} href={`/discussion/${vote}`}>Go to {vote === "agree" ? "pro" : "against"} discussion</Link>
+                </Col>
+            </Container>
+        </>
     )
 }
 

@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
-import styles from '@/styles/Home.module.scss'
+import { Navbar, Container, Text } from "@nextui-org/react";
 import { useState, useEffect } from 'react'
 import DiscussionBody from '@/components/discussion-components/discussion-body'
+import DropdownMenu from "../../components/dropdown-menu";
 
-const DiscussionSide = () => {
+const DiscussionSide = ({focusedMsgId}) => {
     const router = useRouter()
     const { side } = router.query
     const [discData, setDiscData] = useState(null)
@@ -15,13 +16,19 @@ const DiscussionSide = () => {
                 setDiscData(data.discussion.messages)
             })
             .catch(error => console.log(error))
+            
     }, [side])
 
     return (
-    <div className={styles.main}>
-        <h1 className={styles.title}>Discussion Side: {side}</h1>
-        {discData && <DiscussionBody messages={discData} />}
-    </div>
+        <>
+            <Navbar shouldHideOnScroll css={{ margin: "1% 0" }}>
+                <Text h2>Discussion Side: {side}</Text>
+                <DropdownMenu yourVote={side} />
+            </Navbar>
+            <Container md>
+                {discData && <DiscussionBody side={side} messages={discData} focusedMsgId={focusedMsgId} />}
+            </Container>
+        </>
     )
 }
 

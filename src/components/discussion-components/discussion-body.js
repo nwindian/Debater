@@ -1,11 +1,16 @@
+import { Grid } from '@nextui-org/react'
 import DiscussionMessage from "./discussion-message";
-import styles from '@/styles/Home.module.scss'
+import { getTime } from '@/helpers'
 
-const DiscussionBody = ({ messages }) => {
+const DiscussionBody = ({ messages, side, focusedMsgId }) => { 
+
     return (
-        <div className={styles.disc_body_container}>
-            {messages.map((m) => <DiscussionMessage key={m.id} id={m.id} user={m.user} body={m.body} />)}
-        </div>
+        <Grid.Container gap={1}>
+            {messages.length && messages.map((m) => {
+                const time = getTime(m.timeAgoPosted[0], m.timeAgoPosted[1])
+                return <DiscussionMessage focused={focusedMsgId === m.id} key={m.id} id={m.id} time={time} user={m.user} body={m.body} side={side} />
+            })}
+        </Grid.Container>
     )
 }
 
